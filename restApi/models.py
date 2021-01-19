@@ -4,6 +4,9 @@ from django.db import models
 class banks(models.Model):
     name = models.TextField(max_length=50)
 
+    def __str__(self):
+        return self.name
+
     class Meta:
         db_table = "banks"
 
