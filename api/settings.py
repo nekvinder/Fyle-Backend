@@ -25,9 +25,9 @@ SECRET_KEY = '-c_%708w=4h(nwmaa$nhty+h)t04+5wrcc&%)-==25t^(i!bmj'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
-
+CORS_ALLOW_ALL_ORIGINS = True
 # Application definition
 
 INSTALLED_APPS = [
@@ -35,7 +35,7 @@ INSTALLED_APPS = [
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
-    'django.contrib.messages',
+    'django.contrib.messages', 'corsheaders',
     'django.contrib.staticfiles',
     'rest_framework', 'restApi', 'django_filters'
 ]
@@ -49,6 +49,8 @@ MIDDLEWARE = [
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.common.CommonMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
