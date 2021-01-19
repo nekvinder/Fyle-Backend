@@ -83,10 +83,10 @@ WSGI_APPLICATION = 'api.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'fyle',
-        'USER': 'nekvinder',
-        'PASSWORD': 'test123',
-        'HOST': 'localhost',
+        'NAME': 'blcv8ywwntuzcbo0wj7y',
+        'USER': 'uzlggmmmylqiwypqkz0v',
+        'PASSWORD': '7v6Gx6JGXoZeDdZ2Lshq',
+        'HOST': 'blcv8ywwntuzcbo0wj7y-postgresql.services.clever-cloud.com',
         'PORT': '',
     }
 }
