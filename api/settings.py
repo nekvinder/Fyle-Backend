@@ -80,21 +80,14 @@ WSGI_APPLICATION = 'api.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#         'NAME': 'blcv8ywwntuzcbo0wj7y',
-#         'USER': 'uzlggmmmylqiwypqkz0v',
-#         'PASSWORD': '7v6Gx6JGXoZeDdZ2Lshq',
-#         'HOST': 'blcv8ywwntuzcbo0wj7y-postgresql.services.clever-cloud.com',
-#         'PORT': '',
-#     }
-# }
-
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': 'mydatabase',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'blcv8ywwntuzcbo0wj7y',
+        'USER': 'uzlggmmmylqiwypqkz0v',
+        'PASSWORD': '7v6Gx6JGXoZeDdZ2Lshq',
+        'HOST': 'blcv8ywwntuzcbo0wj7y-postgresql.services.clever-cloud.com',
+        'PORT': '',
     }
 }
 
