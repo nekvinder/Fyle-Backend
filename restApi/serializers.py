@@ -1,17 +1,22 @@
-from .models import banks, branches
+from .models import lobby, lottery, user
 from rest_framework import serializers
 
 
-class BanksSerializer(serializers.HyperlinkedModelSerializer):
+class UserSerializer(serializers.ModelSerializer):
     class Meta:
-        model = banks
-        fields = ['url', 'id', 'name']
+        model = user
+        fields = ['username', 'url', 'id', 'balance', ]
 
 
-class BranchesSerializer(serializers.HyperlinkedModelSerializer):
-    bank = serializers.StringRelatedField(read_only=True)
-
+class LobbySerializer(serializers.ModelSerializer):
     class Meta:
-        model = branches
-        fields = ['url', 'ifsc', 'branch', 'address',
-                  'city', 'district', 'state', 'bank', ]
+        model = lobby
+        fields = ['url', 'id', 'name', 'capacity',
+                  'entryFee', 'created_at', 'finished', ]
+
+
+class LotterySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = lottery
+        fields = ['url', 'id', 'lobby',
+                  'houseChargeAmount', 'participants', 'winner', 'created_at', ]

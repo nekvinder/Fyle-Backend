@@ -1,24 +1,25 @@
 from django.db import models
 
 
-class banks(models.Model):
-    name = models.TextField(max_length=50)
-
-    def __str__(self):
-        return self.name
-
-    class Meta:
-        db_table = "banks"
+class user(models.Model):
+    username = models.TextField(null=False, unique=True)
+    balance = models.DecimalField(null=False, max_digits=12, decimal_places=2)
 
 
-class branches(models.Model):
-    ifsc = models.TextField(max_length=11, null=False, primary_key=True)
-    branch = models.TextField(max_length=74)
-    address = models.TextField(max_length=195)
-    city = models.TextField(max_length=50)
-    district = models.TextField(max_length=50)
-    state = models.TextField(max_length=26)
-    bank = models.ForeignKey(banks, on_delete=models.DO_NOTHING)
+class lobby(models.Model):
+    created_at = models.DateTimeField(auto_now_add=True)
+    name = models.TextField(null=False, unique=True)
+    capacity = models.IntegerField(null=False)
+    entryFee = models.DecimalField(null=False, max_digits=12, decimal_places=2)
+    finished = models.BooleanField(default=False)
 
-    class Meta:
-        db_table = "branches"
+
+class lottery(models.Model):
+    created_at = models.DateTimeField(auto_now_add=True)
+    lobby = models.ForeignKey(lobby,  null=False, on_delete=models.RESTRICT)
+    houseChargeAmount = models.DecimalField(
+        default=0.0, null=False, max_digits=12, decimal_places=2)
+    participants = models.ManyToManyField(
+        user, blank=True, related_name="lottery_participants")
+    winner = models.ForeignKey(
+        user, related_name="lottery_winner_user", null=True, on_delete=models.RESTRICT)
